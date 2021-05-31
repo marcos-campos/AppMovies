@@ -11,22 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PagMovies">
-        <activity android:name=".MainActivity">
-
-        </activity>
-
+        <activity android:name=".ui.details.DetailsActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".ui.splash.SplashActivity" >
-
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

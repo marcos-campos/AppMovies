@@ -1,11 +1,13 @@
 package com.example.pagmovies.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pagmovies.R
 import com.example.pagmovies.data.Result
+import com.example.pagmovies.ui.details.DetailsActivity
 import com.squareup.picasso.Picasso
 
 class AdapterUpcomingMovies: RecyclerView.Adapter<ViewHolderUpcomingMovies>() {
@@ -27,6 +29,15 @@ class AdapterUpcomingMovies: RecyclerView.Adapter<ViewHolderUpcomingMovies>() {
 
         val imgMovie = holder.imageMovie
         Picasso.get().load(baseUrl + tamanhoImage + upcomingMoviesList[position].poster_path).fit().into(imgMovie)
+
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(it.context, DetailsActivity::class.java)
+
+            intent.putExtra("movies", upcomingMoviesList[position])
+
+            it.context.startActivity(intent)
+        }
 
 //        val nameMovie = holder.nameMovie
 //        nameMovie.text = upcomingMoviesList[position].title
