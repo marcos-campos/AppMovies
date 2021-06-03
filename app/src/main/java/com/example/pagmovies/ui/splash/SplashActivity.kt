@@ -6,6 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pagmovies.MainActivity
 import com.example.pagmovies.R
+import com.example.pagmovies.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            startActivity(Intent(this , MainActivity::class.java))
+            startActivity(Intent(this , LoginActivity::class.java))
 
             finish ()
         },2700)

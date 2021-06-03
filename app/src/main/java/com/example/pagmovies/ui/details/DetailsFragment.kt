@@ -1,10 +1,14 @@
 package com.example.pagmovies.ui.details
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
@@ -27,6 +31,7 @@ class DetailsFragment(val result: Result)  : Fragment() {
     val detailsDateMovie by lazy { view?.findViewById<TextView>(R.id.details_date) }
     val detailsFav by lazy { view?.findViewById<ImageView>(R.id.details_favorite) }
     val detailsFavAdd by lazy { view?.findViewById<ImageView>(R.id.details_favorite_add) }
+    val detailsTrailer by lazy { view?.findViewById<ImageView>(R.id.details_trailer) }
 
     companion object {
         fun newInstance(it: Result) = DetailsFragment(it)
@@ -56,6 +61,10 @@ class DetailsFragment(val result: Result)  : Fragment() {
         if (valueRating != null) {
             detailsRatingBar!!.rating = valueRating.toFloat()
         }
+
+        detailsTrailer?.setOnClickListener {
+        openYoutubeLink("/results?search_query=trailer+" + result.title)
+        }
     }
 
     fun addFav(){
@@ -66,5 +75,16 @@ class DetailsFragment(val result: Result)  : Fragment() {
         detailsFavAdd?.setOnClickListener {
             detailsFavAdd?.visibility = View.GONE
         }
+    }
+
+    fun openYoutubeLink(youtubeID: String) {
+        val intentApp = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + youtubeID))
+        val intentBrowser = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + youtubeID))
+        try {
+            this.startActivity(intentApp)
+        } catch (ex: ActivityNotFoundException) {
+            this.startActivity(intentBrowser)
+        }
+
     }
 }

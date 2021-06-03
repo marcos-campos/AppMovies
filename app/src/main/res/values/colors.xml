@@ -11,4 +11,7 @@
     <color name="orange">#FF5722</color>
     <color name="blue">#40C4FF</color>
     <color name="gold">#FFD600</color>
+    <color name="back_blue">#304FFE</color>
+    <color name="back_green">#00C853</color>
+    <color name="back_red">#F44336</color>
 </resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "739201667828",
+    "project_id": "pagmoviesdb",
+    "storage_bucket": "pagmoviesdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739201667828:android:fe2846912f94a41ef744a1",
+        "android_client_info": {
+          "package_name": "com.example.pagmovies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739201667828-31tfdb5vi0abbqfkj1i5ofmjktc05n4s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pagmovies",
+            "certificate_hash": "d3b4d4cec6c789ecde4e48148be7c3b08aef3ed8"
+          }
+        },
+        {
+          "client_id": "739201667828-9ihis84jdf5jnsks5l91pj30mu8sd97u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTORHOB-2jCUrSjHO0p38hZ_3baLgU23o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739201667828-9ihis84jdf5jnsks5l91pj30mu8sd97u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
