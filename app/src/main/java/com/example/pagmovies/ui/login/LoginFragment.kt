@@ -23,7 +23,6 @@ class LoginFragment  : Fragment() {
     val btnLogin by lazy {view?.findViewById<Button>(R.id.login_btn_login)}
     val btnLogout by lazy {view?.findViewById<Button>(R.id.login_btn_logout)}
     val btnLoginGmail by lazy {view?.findViewById<ImageView>(R.id.login_iv_gmail)}
-    val btnLoginFacebook by lazy {view?.findViewById<ImageView>(R.id.login_iv_facebook)}
 
     val etLogin by lazy {view?.findViewById<TextView>(R.id.login_et_user)}
     val etPassword by lazy {view?.findViewById<TextView>(R.id.login_et_password)}
@@ -58,6 +57,11 @@ class LoginFragment  : Fragment() {
 
         btnLogout?.setOnClickListener {
             signout()
+        }
+
+        btnLogin?.setOnClickListener {
+            val intent = Intent(context, MainActivity::class.java)
+            startActivity(intent)
         }
 
     }

@@ -5,36 +5,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black">
 
+    <ImageView
+        android:id="@+id/login_iv_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/movies"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/login_tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Movies On The House"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_iv_background"
+        android:textColor="@color/white"
+        android:fontFamily="serif"
+        android:textSize="21sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/login_tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login and enjoy a variety of movies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_tv_welcome"
+        android:textColor="@color/white"
+        android:fontFamily="serif"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
     <EditText
         android:id="@+id/login_et_user"
         android:layout_width="300dp"
-        android:paddingStart="5dp"
         android:layout_height="50dp"
-        android:layout_marginTop="120dp"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="5dp"
+        android:textColor="@color/white"
+        android:text="Email"
+        android:imeOptions="actionNext"
+        android:inputType="textCapSentences"
+        android:paddingStart="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Email"
-        android:textColor="@color/black"
-        android:background="@color/white"
-        android:drawablePadding="05dp"
-        android:imeOptions="actionNext"
-        android:inputType="textCapSentences" />
+        app:layout_constraintTop_toBottomOf="@+id/login_tv_description"
+        android:layout_marginTop="30dp"/>
 
     <EditText
         android:id="@+id/login_et_password"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_edittext"
         android:drawablePadding="05dp"
-        android:hint="Password"
+        android:textColor="@color/white"
+        android:text="Email"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
+        android:drawableStart="@drawable/ic_lock"
         android:paddingStart="5dp"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_et_user"
@@ -42,19 +79,19 @@
 
     <Button
         android:id="@+id/login_btn_login"
-        android:layout_width="310dp"
+        android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginStart="87dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="86dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/gray"
         android:clickable="true"
-        android:text="Log in"
+        android:text="Entrar"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="24sp"
         android:textStyle="normal"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_et_password" />
@@ -66,7 +103,7 @@
         android:layout_marginTop="60dp"
         android:background="@color/gold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         android:layout_marginStart="10dp"/>
 
     <View
@@ -76,7 +113,7 @@
         android:layout_marginTop="65dp"
         android:background="@color/back_blue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         android:layout_marginStart="10dp"/>
 
     <View
@@ -86,7 +123,7 @@
         android:layout_marginTop="70dp"
         android:background="@color/back_red"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         android:layout_marginStart="10dp"/>
 
     <View
@@ -96,7 +133,7 @@
         android:layout_marginTop="75dp"
         android:background="@color/back_green"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         android:layout_marginStart="10dp"/>
 
     <TextView
@@ -106,12 +143,12 @@
         android:text="Or"
         android:textSize="20dp"
         android:layout_marginTop="65dp"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif-condensed-medium"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/view6"
         app:layout_constraintEnd_toStartOf="@+id/view2"
         app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login" />
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login" />
 
     <View
         android:id="@+id/view2"
@@ -119,7 +156,7 @@
         android:layout_height="2dp"
         android:layout_marginTop="60dp"
         android:background="@color/gold"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
 
@@ -129,7 +166,7 @@
         android:layout_height="2dp"
         android:layout_marginTop="65dp"
         android:background="@color/back_blue"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
 
@@ -139,7 +176,7 @@
         android:layout_height="2dp"
         android:layout_marginTop="70dp"
         android:background="@color/back_red"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
 
@@ -149,51 +186,27 @@
         android:layout_height="2dp"
         android:layout_marginTop="75dp"
         android:background="@color/back_green"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_login"
+        app:layout_constraintTop_toBottomOf="@id/login_btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
 
-    <Button
-        android:id="@+id/login_btn_register"
-        android:layout_width="310dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
-        android:text="Register"
-        android:textAllCaps="false"
-        android:textSize="24dp"
-        android:textStyle="normal"
-        android:fontFamily="casual"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <ImageView
         android:id="@+id/login_iv_gmail"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/gmail"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_register"
-        android:layout_marginStart="60dp"/>
-
-    <ImageView
-        android:id="@+id/login_iv_facebook"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/facebook"
-        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn_register"
-        android:layout_marginEnd="60dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view8" />
 
     <Button
         android:id="@+id/login_btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/gray"
         android:fontFamily="casual"
         android:textAllCaps="false"
         android:textSize="18sp"
