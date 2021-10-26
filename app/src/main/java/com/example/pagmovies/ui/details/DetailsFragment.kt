@@ -4,21 +4,18 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.pagmovies.R
 import com.example.pagmovies.data.Result
-import com.example.pagmovies.ui.main.MainViewModel
 import com.squareup.picasso.Picasso
+
 
 class DetailsFragment(val result: Result)  : Fragment() {
 
@@ -37,8 +34,10 @@ class DetailsFragment(val result: Result)  : Fragment() {
         fun newInstance(it: Result) = DetailsFragment(it)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.details_fragment, container, false)
     }
 
@@ -55,7 +54,11 @@ class DetailsFragment(val result: Result)  : Fragment() {
         detailsValueRating?.text = (result.vote_average?.div(2)).toString()
         detailsDateMovie?.text = result.release_date
         Picasso.get().load(baseUrlImage + tamanhoImage + result.poster_path).into(detailsImgMovie)
-        Picasso.get().load(baseUrlImage + tamanhoImage + result.backdrop_path).into(detailsImgBackMovie)
+        Picasso.get().load(baseUrlImage + tamanhoImage + result.backdrop_path).into(
+            detailsImgBackMovie
+        )
+
+        detailsDescriptionMovie?.movementMethod = ScrollingMovementMethod()
 
         var valueRating = result.vote_average?.div(2)
         if (valueRating != null) {
@@ -79,7 +82,10 @@ class DetailsFragment(val result: Result)  : Fragment() {
 
     fun openYoutubeLink(youtubeID: String) {
         val intentApp = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + youtubeID))
-        val intentBrowser = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + youtubeID))
+        val intentBrowser = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("http://www.youtube.com/watch?v=" + youtubeID)
+        )
         try {
             this.startActivity(intentApp)
         } catch (ex: ActivityNotFoundException) {

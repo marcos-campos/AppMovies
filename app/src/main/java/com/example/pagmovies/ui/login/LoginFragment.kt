@@ -21,11 +21,9 @@ import com.google.firebase.auth.GoogleAuthProvider
 class LoginFragment  : Fragment() {
 
     val btnLogin by lazy {view?.findViewById<Button>(R.id.login_btn_login)}
-    val btnLogout by lazy {view?.findViewById<Button>(R.id.login_btn_logout)}
     val btnLoginGmail by lazy {view?.findViewById<ImageView>(R.id.login_iv_gmail)}
-
-    val etLogin by lazy {view?.findViewById<TextView>(R.id.login_et_user)}
-    val etPassword by lazy {view?.findViewById<TextView>(R.id.login_et_password)}
+    val etLogin by lazy {view?.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.mail)}
+    val etPassword by lazy {view?.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.password)}
 
     lateinit var auth: FirebaseAuth
     lateinit var googleSignInClient: GoogleSignInClient
@@ -55,10 +53,6 @@ class LoginFragment  : Fragment() {
             signIn()
         }
 
-        btnLogout?.setOnClickListener {
-            signout()
-        }
-
         btnLogin?.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
@@ -71,7 +65,10 @@ class LoginFragment  : Fragment() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
 //        updateUI(currentUser)
-        etLogin?.text = currentUser?.email
+//        etLogin?.text = currentUser?.email
+
+        etLogin?.setText(currentUser?.email)
+
     }
 
     private fun signIn() {
@@ -107,8 +104,11 @@ class LoginFragment  : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    etLogin?.text = user?.email.toString()
-                    etPassword?.text = "**********"
+//                    etLogin?.text = user?.email.toString()
+//                    etPassword?.text = "**********"
+
+                    etLogin?.setText(user?.email.toString())
+                    etPassword?.setText("**********")
 
                     val intent = Intent(context, MainActivity::class.java)
                     startActivity(intent)
@@ -116,19 +116,21 @@ class LoginFragment  : Fragment() {
                 }  else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    etLogin?.text = "erro"
+//                    etLogin?.text = "erro"
+
+                    etLogin?.setText("erro")
                 }
             }
     }
 
-    fun signout(){
-        auth.signOut()
-        googleSignInClient.signOut()
-
-        Toast.makeText(context, "Usuário desconectado", Toast.LENGTH_SHORT).show()
-
-        etLogin?.text = ""
-        etPassword?.text = ""
-    }
+//    fun signout(){
+//        auth.signOut()
+//        googleSignInClient.signOut()
+//
+//        Toast.makeText(context, "Usuário desconectado", Toast.LENGTH_SHORT).show()
+//
+//        etLogin?.text = ""
+//        etPassword?.text = ""
+//    }
 
 }
